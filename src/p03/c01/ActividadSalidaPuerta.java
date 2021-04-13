@@ -1,9 +1,14 @@
 package src.p03.c01;
 
 public class ActividadSalidaPuerta implements Runnable{
+	
+	private static final int NUMSALIDAS = 20;
+	private String puerta;
+	private IParque parque;
 
 	public ActividadSalidaPuerta(String puerta, IParque parque) {
-		// TODO Auto-generated constructor stub
+		this.puerta = puerta;
+		this.parque = parque;
 	}
 
 	@Override
@@ -11,8 +16,4 @@ public class ActividadSalidaPuerta implements Runnable{
 		// TODO Auto-generated method stub
 		
 	}
-
-	//
-	// TODO
-	//
 }
