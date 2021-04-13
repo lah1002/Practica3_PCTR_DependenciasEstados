@@ -6,14 +6,16 @@ import java.util.Hashtable;
 public class Parque implements IParque{
 
 
-	private static final int AFOROMAX = 50;
+	
 	private int contadorPersonasTotales;
 	private Hashtable<String, Integer> contadoresPersonasPuerta;
+	private int aforomax;
 	
 	
-	public Parque() {
+	public Parque(int aforo) {
 		contadorPersonasTotales = 0;
 		contadoresPersonasPuerta = new Hashtable<String, Integer>();
+		this.aforomax=aforo;
 	}
 
 
@@ -88,11 +90,11 @@ public class Parque implements IParque{
 	protected void checkInvariante() {
 		assert sumarContadoresPuerta() == contadorPersonasTotales : "INV: La suma de contadores de las puertas debe ser igual al valor del contador del parte";
 		assert contadorPersonasTotales > 0: "No puede salir más gente de la que ha entrado" ;
-		assert contadorPersonasTotales <= AFOROMAX: "Aforo máximo alcanzado"	;
+		assert contadorPersonasTotales <= aforomax: "Aforo máximo alcanzado"	;
 			}
 
-	protected void comprobarAntesDeEntrar(){	// TODO
-		while (contadorPersonasTotales >= AFOROMAX) {
+	protected void comprobarAntesDeEntrar(){
+		while (contadorPersonasTotales >= aforomax) {
 			try {
 				this.wait();
 			} catch (InterruptedException e) {
@@ -102,10 +104,15 @@ public class Parque implements IParque{
 		}
 	}
 
-	protected void comprobarAntesDeSalir(){		// TODO
-		//
-		// TODO
-		//
+	protected void comprobarAntesDeSalir(){		
+		while (contadorPersonasTotales <= 0) {
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 
