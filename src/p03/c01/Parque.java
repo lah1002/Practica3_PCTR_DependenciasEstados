@@ -92,9 +92,14 @@ public class Parque implements IParque{
 			}
 
 	protected void comprobarAntesDeEntrar(){	// TODO
-		//
-		// TODO
-		//
+		while (contadorPersonasTotales >= AFOROMAX) {
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	protected void comprobarAntesDeSalir(){		// TODO
