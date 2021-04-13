@@ -2,4 +2,4 @@
 
 Plantilla para la realización de la tercera práctica de la asignatura de Programación Concurrente y Tiempo Real del Grado en Ingeniería Informática de la Universidad de Burgos.
 
-Autores: Luis Miguel Aguero Hernando & Oscar Alonso Ginel
+Autores: Luis Miguel Aguero Hernando & Oscar Alonso Ginel.
