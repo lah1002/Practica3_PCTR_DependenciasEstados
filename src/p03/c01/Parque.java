@@ -6,7 +6,7 @@ import java.util.Hashtable;
 public class Parque implements IParque{
 
 
-	// TODO 
+	private static final int AFOROMAX = 50;
 	private int contadorPersonasTotales;
 	private Hashtable<String, Integer> contadoresPersonasPuerta;
 	
@@ -14,7 +14,6 @@ public class Parque implements IParque{
 	public Parque() {
 		contadorPersonasTotales = 0;
 		contadoresPersonasPuerta = new Hashtable<String, Integer>();
-		// TODO
 	}
 
 
@@ -36,11 +35,11 @@ public class Parque implements IParque{
 		// Imprimimos el estado del parque
 		imprimirInfo(puerta, "Entrada");
 		
+		
+		this.notifyAll();
+		
 		checkInvariante();
-		
-		
-		// TODO
-		
+			
 	}
 	
 	
